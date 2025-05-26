@@ -150,8 +150,11 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-       
+        Message Message = new Message();
+        Message.setVisible(true);
+        Message.pack();
+        Message.setLocationRelativeTo(null);
+        this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -171,22 +174,16 @@ public class Login extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
     
@@ -208,22 +205,16 @@ public class Login extends javax.swing.JFrame {
                password.matches(".*[!@#\\$%\\^&\\*(),.?\":{}|<>].*");
     }
 
-    public boolean checkCellPhoneNumber(String phoneNumber) {
-        return phoneNumber.matches("^\\+\\d{10,15}$"); // e.g., +12345678901
-    }
-
     public String registerUser(String username, String password) {
-        if (checkUserName(username)) {
+        if (!checkUserName(username)) {
             return "Username is incorrectly formatted.";
         }
-        if (checkPasswordComplexity(password)) {
+        if (!checkPasswordComplexity(password)) {
             return "Password does not meet the complexity requirements.";
         }
-        
-        
 
-        lusername = username;
-        lpassword = password;
+        this.lusername = username;
+        this.lpassword = password;
         return "User registered successfully.";
     }
 
@@ -231,11 +222,12 @@ public class Login extends javax.swing.JFrame {
         isLoggedIn = username.equals(lusername) && password.equals(lpassword);
         return isLoggedIn;
     }
-    //ChatGPT
+
     public String returnLoginStatus() {
         return isLoggedIn ? "Login successful." : "Login failed.";
     }
 }
+
 
     
 

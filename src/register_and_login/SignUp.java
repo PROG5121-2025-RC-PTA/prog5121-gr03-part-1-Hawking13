@@ -174,7 +174,12 @@ public class SignUp extends javax.swing.JFrame {
          }
          if(jpassword.getText().length()>7){
            for(char c :jpassword.getText().toCharArray()){
-               if(Character.isUpperCase(c)&& Character.isDigit(c)&& Character.isLetterOrDigit(c) );  
+               if(Character.isUpperCase(c)&& Character.isDigit(c)&& Character.isLetterOrDigit(c) );
+               Message Message = new Message();
+               Message.setVisible(true);
+               Message.pack();
+               Message.setLocationRelativeTo(null);
+               this.dispose();
            }   
          }
     }//GEN-LAST:event_SignUpBtnActionPerformed

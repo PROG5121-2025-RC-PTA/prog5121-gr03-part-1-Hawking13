@@ -12,5 +12,9 @@ public class Register_and_Login {
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null);//
     }
+     {
+        
+    }
+    
     
 }

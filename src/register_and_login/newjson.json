@@ -1,0 +1,14 @@
+[
+    {
+        "messageID": "msg1",
+        "recipient": "+123456789",
+        "messageText": "Hello!",
+        "messageHash": "a1b2c3d4"
+    },
+    {
+        "messageID": "msg2",
+        "recipient": "+987654321",
+        "messageText": "How are you?",
+        "messageHash": "e5f6g7h8"
+    }
+]
